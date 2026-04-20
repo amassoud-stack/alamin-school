@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Tahfeez.Api/Tahfeez.Api.csproj" />
+    <Project Path="src/Tahfeez.Application/Tahfeez.Application.csproj" />
+    <Project Path="src/Tahfeez.Domain/Tahfeez.Domain.csproj" />
+    <Project Path="src/Tahfeez.Infrastracture/Tahfeez.Infrastracture.csproj" />
+    <Project Path="src/Tahfeez.SharedKernal/Tahfeez.SharedKernal.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Tahfeez.Api.Test/Tahfeez.Api.Test.csproj" />
+    <Project Path="test/Tahfeez.Application.Test/Tahfeez.Application.Test.csproj" />
+  </Folder>
+</Solution>

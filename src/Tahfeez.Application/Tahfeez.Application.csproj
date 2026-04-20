@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="Mapster" Version="9.0.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tahfeez.Domain\Tahfeez.Domain.csproj" />
+    <ProjectReference Include="..\Tahfeez.SharedKernal\Tahfeez.SharedKernal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Auth\DTOs\" />
+    <Folder Include="Features\Auth\Queries\" />
+    <Folder Include="Features\Auth\Validators\Login\" />
+    <Folder Include="Features\Role\Queries\" />
+  </ItemGroup>
+
+</Project>
