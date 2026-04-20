@@ -1,0 +1,42 @@
+name: Build & Deploy via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET 9
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Restore
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish (Self-contained)
+      run: |
+        dotnet publish Tahfeez.Api/Tahfeez.Api.csproj \
+        -c Release \
+        -r linux-x64 \
+        --self-contained true \
+        -o publish
+
+    - name: Upload via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.SECRETS_FTP_SERVER }}
+        username: ${{ secrets.SECRETS_FTP_USERNAME }}
+        password: ${{ secrets.SECRETS_FTP_PASSWORD }}
+        local-dir: publish/
+        server-dir: /
